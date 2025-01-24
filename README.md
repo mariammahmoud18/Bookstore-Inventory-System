@@ -24,18 +24,18 @@ ___
 - **Add Author to Book**: Associate an author with a book.<br>
 
 ### Book Management
--**Create Book**: Add a new book to the system. <br>
--**Find Book by ID**: Retrieve a book by its unique ID.<br>
--**Find Book by Title**: Search for books by title.<br>
--**Find Book by Author**: Retrieve books written by a specific author.<br>
--**Find Book by Year Published**: Search for books by their publication year.<br>
--**Find Book by Genre**: Retrieve books by genre.<br>
--**Find Book by Publisher**: Retrieve books associated with a specific publisher.<br>
--**Delete Book**: Remove a book from the system.<br>
--**Update Book**: Modify details of an existing book.<br>
--**Get Book Stock**: Check the stock availability of a book.<br>
--**Get Book Price**: Retrieve the price of a book.<br>
--**Get Book Author/s**: Retrieve the author(s) of a book.<br>
+- **Create Book**: Add a new book to the system. <br>
+- **Find Book by ID**: Retrieve a book by its unique ID.<br>
+- **Find Book by Title**: Search for books by title.<br>
+- **Find Book by Author**: Retrieve books written by a specific author.<br>
+- **Find Book by Year Published**: Search for books by their publication year.<br>
+- **Find Book by Genre**: Retrieve books by genre.<br>
+- **Find Book by Publisher**: Retrieve books associated with a specific publisher.<br>
+- **Delete Book**: Remove a book from the system.<br>
+- **Update Book**: Modify details of an existing book.<br>
+- **Get Book Stock**: Check the stock availability of a book.<br>
+- **Get Book Price**: Retrieve the price of a book.<br>
+- **Get Book Author/s**: Retrieve the author(s) of a book.<br>
 -**Get Book Publisher**: Retrieve the publisher of a book.<br>
 -**Add Author to Book**: Associate an author with a book.<br>
 -**Add Publisher to Book**: Associate a publisher with a book.<br>
@@ -63,7 +63,7 @@ ___
  ![Bookstore Inventory System](https://github.com/user-attachments/assets/afbc4479-b0b9-4ba0-afe9-47c5b40c6400)
 ___
 ## Database Script
-`CREATE TABLE `book` (
+``CREATE TABLE `book` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Title`varchar(45) DEFAULT NULL,
   `year_published` year DEFAULT NULL,
@@ -105,6 +105,6 @@ CREATE TABLE book_authors (
     PRIMARY KEY (book_id, author_id),
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
     FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE CASCADE
-);`
+);``
 
 
