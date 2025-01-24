@@ -36,9 +36,9 @@ ___
 - **Get Book Stock**: Check the stock availability of a book.<br>
 - **Get Book Price**: Retrieve the price of a book.<br>
 - **Get Book Author/s**: Retrieve the author(s) of a book.<br>
--**Get Book Publisher**: Retrieve the publisher of a book.<br>
--**Add Author to Book**: Associate an author with a book.<br>
--**Add Publisher to Book**: Associate a publisher with a book.<br>
+- **Get Book Publisher**: Retrieve the publisher of a book.<br>
+- **Add Author to Book**: Associate an author with a book.<br>
+- **Add Publisher to Book**: Associate a publisher with a book.<br>
 ___
 ## Technologies Used
 - **Java 23:** The core programming language used for the application.
@@ -63,25 +63,24 @@ ___
  ![Bookstore Inventory System](https://github.com/user-attachments/assets/afbc4479-b0b9-4ba0-afe9-47c5b40c6400)
 ___
 ## Database Script
-``CREATE TABLE book (
+```sql
+CREATE TABLE book (
   id int NOT NULL AUTO_INCREMENT,
   Title varchar(45) DEFAULT NULL,
   year_published year DEFAULT NULL,
-    price integer DEFAULT NULL,
-      stock integer DEFAULT NULL,
-	genres VARCHAR(255) DEFAULT NULL,
-      publisher_id integer,
-    FOREIGN KEY (publisher_id) REFERENCES publisher(id) ON DELETE CASCADE,
+  price integer DEFAULT NULL,
+  stock integer DEFAULT NULL,
+  genres VARCHAR(255) DEFAULT NULL,
+  publisher_id integer,
+  FOREIGN KEY (publisher_id) REFERENCES publisher(id) ON DELETE CASCADE,
   PRIMARY KEY (id)
-); <br>
-
-
+); 
 
 CREATE TABLE publisher (
   id int NOT NULL AUTO_INCREMENT,
   name varchar(45) DEFAULT NULL,
   address varchar(45) DEFAULT NULL,
-   phone varchar(15) DEFAULT NULL,
+  phone varchar(15) DEFAULT NULL,
   email varchar(45) DEFAULT NULL,
   PRIMARY KEY (id)
 ); 
@@ -90,12 +89,11 @@ CREATE TABLE author (
   id int NOT NULL AUTO_INCREMENT,
   first_name varchar(45) DEFAULT NULL,
   last_name varchar(45) DEFAULT NULL,
-   bio varchar(255) DEFAULT NULL,
-   nationality varchar(255) DEFAULT NULL,
+  bio varchar(255) DEFAULT NULL,
+  nationality varchar(255) DEFAULT NULL,
   birthdate date DEFAULT NULL,
   PRIMARY KEY (id)
 );
-
 
 CREATE TABLE book_authors (
     book_id INT,
@@ -103,6 +101,6 @@ CREATE TABLE book_authors (
     PRIMARY KEY (book_id, author_id),
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE,
     FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE CASCADE
-);``
+);
 
 
