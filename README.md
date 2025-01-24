@@ -63,40 +63,38 @@ ___
  ![Bookstore Inventory System](https://github.com/user-attachments/assets/afbc4479-b0b9-4ba0-afe9-47c5b40c6400)
 ___
 ## Database Script
-``CREATE TABLE `book` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `Title`varchar(45) DEFAULT NULL,
-  `year_published` year DEFAULT NULL,
-    `price` integer DEFAULT NULL,
-      `stock` integer DEFAULT NULL,
+``CREATE TABLE book (
+  id int NOT NULL AUTO_INCREMENT,
+  Title varchar(45) DEFAULT NULL,
+  year_published year DEFAULT NULL,
+    price integer DEFAULT NULL,
+      stock integer DEFAULT NULL,
 	genres VARCHAR(255) DEFAULT NULL,
       publisher_id integer,
     FOREIGN KEY (publisher_id) REFERENCES publisher(id) ON DELETE CASCADE,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (id)
+); <br>
+
+
+
+CREATE TABLE publisher (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(45) DEFAULT NULL,
+  address varchar(45) DEFAULT NULL,
+   phone varchar(15) DEFAULT NULL,
+  email varchar(45) DEFAULT NULL,
+  PRIMARY KEY (id)
+); 
+
+CREATE TABLE author (
+  id int NOT NULL AUTO_INCREMENT,
+  first_name varchar(45) DEFAULT NULL,
+  last_name varchar(45) DEFAULT NULL,
+   bio varchar(255) DEFAULT NULL,
+   nationality varchar(255) DEFAULT NULL,
+  birthdate date DEFAULT NULL,
+  PRIMARY KEY (id)
 );
-
-
-
-CREATE TABLE `publisher` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name`varchar(45) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-   `phone` varchar(15) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-  
-
-CREATE TABLE `author` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name`varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
-   `bio` varchar(255) DEFAULT NULL,
-   `nationality` varchar(255) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
 
 
 CREATE TABLE book_authors (
